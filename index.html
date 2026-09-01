@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>El primer suspiro de septiembre ☀️</title>
+
+<meta name="theme-color" content="#c9a878">
+<meta name="description" content="El primer amanecer de septiembre.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=DM+Sans:wght@400;500&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root{
+    --night:#11192b;
+    --night2:#27344a;
+    --dawn:#6c7785;
+    --gold:#d9ad72;
+    --gold-soft:#ecd09e;
+
+    --cream:#fffaf0;
+    --paper:#fffdf8;
+    --ink:#40362e;
+    --muted:#776b5e;
+
+    --shadow:rgba(57,42,29,.16);
+}
+
+/* =========================================================
+   BASE
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    overflow-x:hidden;
+    background:#11192b;
+    color:var(--ink);
+    font-family:"DM Sans",sans-serif;
+}
+
+/* =========================================================
+   CIELO
+========================================================= */
+
+.sky{
+    position:fixed;
+    inset:0;
+    z-index:-30;
+
+    background:
+        linear-gradient(
+            180deg,
+            #0e1526 0%,
+            #202b40 28%,
+            #536174 53%,
+            #aa8c6d 76%,
+            #e7c993 100%
+        );
+
+    animation:
+        skyAwakening 8s ease forwards;
+}
+
+@keyframes skyAwakening{
+
+    0%{
+        filter:brightness(.58) saturate(.72);
+    }
+
+    100%{
+        filter:brightness(1) saturate(1);
+    }
+}
+
+/* =========================================================
+   RESPLANDOR DEL AMANECER
+========================================================= */
+
+.sun{
+    position:fixed;
+
+    width:500px;
+    height:500px;
+
+    left:50%;
+    bottom:-360px;
+
+    transform:translateX(-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,226,172,.75) 0%,
+            rgba(255,215,150,.34) 27%,
+            rgba(255,210,140,.10) 52%,
+            transparent 72%
+        );
+
+    filter:blur(5px);
+
+    opacity:0;
+
+    animation:
+        sunrise 9s ease 1s forwards;
+
+    z-index:-25;
+}
+
+@keyframes sunrise{
+
+    0%{
+        opacity:0;
+        bottom:-390px;
+    }
+
+    100%{
+        opacity:.9;
+        bottom:-265px;
+    }
+}
+
+/* =========================================================
+   NUBES
+========================================================= */
+
+.cloud{
+    position:fixed;
+
+    width:260px;
+    height:55px;
+
+    border-radius:50%;
+
+    background:rgba(255,247,230,.09);
+
+    filter:blur(15px);
+
+    z-index:-20;
+
+    pointer-events:none;
+}
+
+.cloud-1{
+    top:17%;
+    left:-300px;
+
+    animation:
+        cloudOne 35s linear infinite;
+}
+
+.cloud-2{
+    top:31%;
+    right:-320px;
+
+    width:330px;
+
+    opacity:.7;
+
+    animation:
+        cloudTwo 42s linear infinite;
+}
+
+@keyframes cloudOne{
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(140vw);
+    }
+}
+
+@keyframes cloudTwo{
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-140vw);
+    }
+}
+
+/* =========================================================
+   ESTRELLAS MUY SUTILES
+========================================================= */
+
+.morning-stars{
+    position:fixed;
+    inset:0;
+
+    z-index:-15;
+
+    opacity:1;
+
+    animation:
+        starsDisappear 7s ease forwards;
+}
+
+.morning-star{
+    position:absolute;
+
+    width:2px;
+    height:2px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.72);
+}
+
+@keyframes starsDisappear{
+
+    0%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:0;
+    }
+}
+
+/* =========================================================
+   INTRODUCCIÓN
+========================================================= */
+
+.intro{
+    position:fixed;
+    inset:0;
+
+    z-index:100;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:25px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #10172a,
+            #273248
+        );
+
+    transition:
+        opacity 1.5s ease,
+        visibility 1.5s ease;
+}
+
+.intro.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.intro-content{
+    width:min(430px,100%);
+
+    text-align:center;
+
+    color:#fff8ec;
+
+    animation:
+        introAppear 2.2s ease;
+}
+
+@keyframes introAppear{
+
+    from{
+        opacity:0;
+        transform:translateY(22px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.intro-sun{
+    width:72px;
+    height:72px;
+
+    margin:0 auto 28px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(235,204,157,.5);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:28px;
+
+    color:#eed19f;
+
+    box-shadow:
+        0 0 50px rgba(225,184,116,.10);
+}
+
+.intro-label{
+    font-size:10px;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    opacity:.62;
+
+    margin-bottom:18px;
+}
+
+.intro h1{
+    font-family:"Cinzel",serif;
+
+    font-size:
+        clamp(25px,7vw,39px);
+
+    line-height:1.35;
+
+    font-weight:500;
+
+    letter-spacing:.5px;
+}
+
+.intro-description{
+    margin:22px auto 31px;
+
+    max-width:330px;
+
+    font-size:14px;
+
+    line-height:1.75;
+
+    color:rgba(255,248,236,.72);
+}
+
+.open-letter{
+    border:1px solid rgba(235,204,157,.45);
+
+    background:rgba(255,255,255,.035);
+
+    color:#f5dfb9;
+
+    padding:13px 25px;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    font-family:"DM Sans",sans-serif;
+
+    font-size:12px;
+
+    letter-spacing:1.3px;
+
+    transition:.35s ease;
+}
+
+.open-letter:hover,
+.open-letter:active{
+    background:rgba(255,255,255,.10);
+
+    transform:translateY(-2px);
+}
+
+/* =========================================================
+   CONTENEDOR
+========================================================= */
+
+.main{
+    opacity:0;
+
+    transform:translateY(25px);
+
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease;
+}
+
+.main.visible{
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+/* =========================================================
+   ESCENA DEL AMANECER
+========================================================= */
+
+.scene{
+    position:relative;
+
+    min-height:100vh;
+
+    padding:
+        55px 16px
+        80px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+}
+
+/* =========================================================
+   VENTANA
+========================================================= */
+
+.window{
+    position:absolute;
+
+    top:5vh;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:min(410px,75vw);
+
+    height:min(480px,53vh);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(46,59,81,.70),
+            rgba(221,187,136,.42)
+        );
+
+    border:
+        9px solid rgba(73,54,42,.78);
+
+    border-bottom-width:14px;
+
+    box-shadow:
+        0 35px 90px rgba(30,22,17,.25);
+
+    overflow:hidden;
+
+    z-index:0;
+}
+
+.window::before{
+    content:"";
+
+    position:absolute;
+
+    width:7px;
+    height:100%;
+
+    left:50%;
+    top:0;
+
+    transform:translateX(-50%);
+
+    background:rgba(72,53,40,.72);
+
+    z-index:5;
+}
+
+.window::after{
+    content:"";
+
+    position:absolute;
+
+    width:100%;
+    height:7px;
+
+    left:0;
+    top:52%;
+
+    transform:translateY(-50%);
+
+    background:rgba(72,53,40,.72);
+
+    z-index:5;
+}
+
+.window-glow{
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            135deg,
+            transparent 20%,
+            rgba(255,224,168,.13) 48%,
+            transparent 72%
+        );
+
+    animation:
+        windowGlow 8s ease-in-out infinite alternate;
+}
+
+@keyframes windowGlow{
+
+    from{
+        transform:translateX(-12%);
+        opacity:.4;
+    }
+
+    to{
+        transform:translateX(12%);
+        opacity:.85;
+    }
+}
+
+/* =========================================================
+   CORTINAS
+========================================================= */
+
+.curtain{
+    position:absolute;
+
+    top:0;
+
+    width:48px;
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(245,229,204,.55),
+            rgba(255,247,231,.08)
+        );
+
+    z-index:7;
+}
+
+.curtain-left{
+    left:0;
+}
+
+.curtain-right{
+    right:0;
+
+    transform:scaleX(-1);
+}
+
+/* =========================================================
+   RAYO DE LUZ
+========================================================= */
+
+.light-beam{
+    position:absolute;
+
+    top:0;
+    left:50%;
+
+    width:230px;
+    height:650px;
+
+    transform:translateX(-50%);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,224,166,.18),
+            rgba(255,218,151,.045),
+            transparent
+        );
+
+    clip-path:
+        polygon(
+            42% 0,
+            58% 0,
+            100% 100%,
+            0 100%
+        );
+
+    filter:blur(4px);
+
+    opacity:0;
+
+    animation:
+        beamAppear 5s ease 1.5s forwards;
+
+    z-index:2;
+}
+
+@keyframes beamAppear{
+
+    to{
+        opacity:1;
+    }
+}
+
+/* =========================================================
+   CABECERA
+========================================================= */
+
+.hero{
+    position:relative;
+
+    z-index:10;
+
+    width:min(760px,100%);
+
+    margin-top:
+        clamp(250px,43vh,430px);
+}
+
+.september-mark{
+    width:max-content;
+
+    margin:0 auto 18px;
+
+    padding:8px 15px;
+
+    border:
+        1px solid rgba(92,68,44,.18);
+
+    border-radius:50px;
+
+    background:
+        rgba(255,250,236,.48);
+
+    backdrop-filter:blur(10px);
+
+    color:#725a40;
+
+    font-size:10px;
+
+    letter-spacing:2.5px;
+
+    text-transform:uppercase;
+}
+
+.hero-card{
+    padding:
+        42px 25px
+        38px;
+
+    text-align:center;
+
+    border-radius:27px;
+
+    background:
+        rgba(255,252,245,.87);
+
+    backdrop-filter:blur(16px);
+
+    border:
+        1px solid rgba(255,255,255,.75);
+
+    box-shadow:
+        0 28px 80px rgba(58,42,27,.15);
+}
+
+.hero-card h2{
+    font-family:"Cinzel",serif;
+
+    font-weight:500;
+
+    font-size:
+        clamp(22px,6vw,35px);
+
+    line-height:1.4;
+
+    color:#5d4936;
+}
+
+.hero-card .date{
+    margin-top:19px;
+
+    font-size:12px;
+
+    letter-spacing:1px;
+
+    color:#8a765f;
+}
+
+.hero-card .dedication{
+    margin-top:14px;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:18px;
+
+    color:#8a6848;
+}
+
+/* =========================================================
+   PEQUEÑO MENSAJE DE PREPARACIÓN
+========================================================= */
+
+.prepared{
+    margin:25px auto 0;
+
+    text-align:center;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:15px;
+
+    font-style:italic;
+
+    color:#6f5d4c;
+
+    opacity:.88;
+}
+
+/* =========================================================
+   CARTA
+========================================================= */
+
+.letter-container{
+    position:relative;
+
+    z-index:10;
+
+    width:min(760px,100%);
+
+    margin:
+        30px auto
+        0;
+}
+
+.letter{
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,254,249,.98),
+            rgba(255,250,241,.98)
+        );
+
+    border:
+        1px solid rgba(105,79,51,.10);
+
+    border-radius:26px;
+
+    padding:
+        45px
+        clamp(20px,6vw,64px)
+        48px;
+
+    box-shadow:
+        0 30px 80px var(--shadow);
+}
+
+/* =========================================================
+   TEXTO EXACTO DE LA CARTA
+========================================================= */
+
+.letter-text{
+    font-family:"Playfair Display",serif;
+
+    font-size:17px;
+
+    line-height:1.94;
+
+    color:var(--ink);
+}
+
+.letter-text p{
+    margin:
+        0 0
+        23px;
+}
+
+.letter-title{
+    text-align:center;
+
+    font-family:"Cinzel",serif;
+
+    font-size:
+        clamp(20px,5.4vw,31px);
+
+    line-height:1.45;
+
+    font-weight:500;
+
+    color:#5b4734;
+
+    margin-bottom:16px !important;
+}
+
+.letter-date{
+    text-align:center;
+
+    font-family:"DM Sans",sans-serif;
+
+    font-size:13px;
+
+    line-height:1.7;
+
+    color:#7b6b5b;
+
+    margin-bottom:3px !important;
+}
+
+.letter-dedication{
+    text-align:center;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:17px;
+
+    color:#8a6849;
+
+    margin-bottom:40px !important;
+}
+
+/* =========================================================
+   DETALLE OCULTO
+========================================================= */
+
+.secret{
+    position:relative;
+
+    z-index:15;
+
+    margin:
+        28px auto
+        0;
+
+    text-align:center;
+}
+
+.secret-trigger{
+    width:42px;
+    height:42px;
+
+    border:
+        1px solid rgba(125,94,61,.20);
+
+    border-radius:50%;
+
+    background:
+        rgba(255,249,235,.65);
+
+    color:#9a754d;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:
+        transform .4s ease,
+        background .4s ease,
+        box-shadow .4s ease;
+}
+
+.secret-trigger:hover,
+.secret-trigger:active{
+    transform:scale(1.08);
+
+    background:
+        rgba(255,245,222,.95);
+
+    box-shadow:
+        0 8px 25px rgba(92,66,40,.10);
+}
+
+.secret-message{
+    max-height:0;
+
+    overflow:hidden;
+
+    opacity:0;
+
+    margin:0 auto;
+
+    max-width:500px;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:15px;
+
+    line-height:1.8;
+
+    color:#856548;
+
+    transition:
+        max-height .8s ease,
+        opacity .8s ease,
+        margin .8s ease;
+}
+
+.secret.open .secret-message{
+    max-height:130px;
+
+    opacity:1;
+
+    margin-top:13px;
+}
+
+/* =========================================================
+   CIERRE
+========================================================= */
+
+.closing{
+    position:relative;
+
+    z-index:10;
+
+    width:min(700px,100%);
+
+    margin:
+        65px auto
+        0;
+
+    text-align:center;
+}
+
+.closing-line{
+    width:80px;
+
+    height:1px;
+
+    margin:
+        0 auto
+        23px;
+
+    background:
+        rgba(111,81,50,.25);
+}
+
+.closing-symbol{
+    font-size:21px;
+
+    color:#a27a4d;
+
+    margin-bottom:20px;
+}
+
+.closing-text{
+    font-family:"Playfair Display",serif;
+
+    font-size:16px;
+
+    line-height:1.8;
+
+    color:#665443;
+}
+
+/* =========================================================
+   FRASE FINAL
+========================================================= */
+
+.final-love{
+    margin:
+        42px auto
+        0;
+
+    padding:
+        30px 20px;
+
+    max-width:620px;
+
+    border-top:
+        1px solid rgba(105,77,49,.14);
+
+    border-bottom:
+        1px solid rgba(105,77,49,.14);
+
+    font-family:"Playfair Display",serif;
+
+    font-size:
+        clamp(18px,4.8vw,24px);
+
+    line-height:1.65;
+
+    color:#594432;
+}
+
+.final-love strong{
+    display:block;
+
+    margin-top:15px;
+
+    font-family:"Cinzel",serif;
+
+    font-size:
+        clamp(15px,4vw,19px);
+
+    letter-spacing:1px;
+
+    color:#775738;
+
+    font-weight:500;
+}
+
+/* =========================================================
+   INICIO DEL PROYECTO
+========================================================= */
+
+.project-opening{
+    margin-top:42px;
+
+    text-align:center;
+}
+
+.project-opening .small{
+    display:block;
+
+    font-size:9px;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    color:#917352;
+
+    margin-bottom:12px;
+}
+
+.project-opening .big{
+    font-family:"Cinzel",serif;
+
+    font-size:
+        clamp(17px,4.5vw,23px);
+
+    color:#624b36;
+
+    font-weight:500;
+}
+
+/* =========================================================
+   BOTÓN DEL POEMA
+========================================================= */
+
+.poem-area{
+    margin:
+        35px auto
+        0;
+
+    text-align:center;
+}
+
+.poem-button{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:10px;
+
+    min-width:220px;
+
+    padding:
+        14px 23px;
+
+    border:
+        1px solid rgba(117,86,53,.25);
+
+    border-radius:50px;
+
+    background:
+        rgba(255,250,237,.65);
+
+    color:#76583b;
+
+    text-decoration:none;
+
+    font-family:"DM Sans",sans-serif;
+
+    font-size:12px;
+
+    letter-spacing:1.2px;
+
+    transition:
+        transform .35s ease,
+        background .35s ease,
+        box-shadow .35s ease;
+}
+
+.poem-button:hover,
+.poem-button:active{
+    transform:translateY(-3px);
+
+    background:
+        rgba(255,250,237,.95);
+
+    box-shadow:
+        0 12px 30px rgba(74,53,34,.12);
+}
+
+.poem-button span{
+    font-size:16px;
+}
+
+/* =========================================================
+   PIE
+========================================================= */
+
+.footer{
+    position:relative;
+
+    z-index:10;
+
+    text-align:center;
+
+    margin:
+        45px auto
+        0;
+
+    padding-bottom:30px;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    color:rgba(88,66,47,.62);
+
+    text-transform:uppercase;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:600px){
+
+    .scene{
+        padding:
+            30px 12px
+            60px;
+    }
+
+    .window{
+        top:3vh;
+
+        width:73vw;
+
+        height:42vh;
+
+        border-width:7px;
+
+        border-bottom-width:11px;
+    }
+
+    .window::before{
+        width:5px;
+    }
+
+    .window::after{
+        height:5px;
+    }
+
+    .hero{
+        margin-top:43vh;
+    }
+
+    .hero-card{
+        padding:
+            34px 18px
+            31px;
+
+        border-radius:22px;
+    }
+
+    .hero-card .dedication{
+        font-size:17px;
+    }
+
+    .letter{
+        padding:
+            34px 19px
+            38px;
+
+        border-radius:22px;
+    }
+
+    .letter-text{
+        font-size:16px;
+
+        line-height:1.9;
+    }
+
+    .letter-title{
+        font-size:21px;
+    }
+
+    .letter-dedication{
+        margin-bottom:34px !important;
+    }
+
+    .prepared{
+        padding:0 15px;
+
+        font-size:14px;
+    }
+
+    .final-love{
+        padding:
+            27px 15px;
+
+        font-size:18px;
+    }
+
+    .poem-button{
+        width:90%;
+
+        max-width:300px;
+    }
+}
+
+/* =========================================================
+   ACCESIBILIDAD
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:.01ms !important;
+        scroll-behavior:auto !important;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     CIELO
+===================================================== -->
+
+<div class="sky"></div>
+
+<div class="sun"></div>
+
+<div class="cloud cloud-1"></div>
+<div class="cloud cloud-2"></div>
+
+<div class="morning-stars" id="stars"></div>
+
+
+<!-- =====================================================
+     PANTALLA INICIAL
+===================================================== -->
+
+<section class="intro" id="intro">
+
+    <div class="intro-content">
+
+        <div class="intro-sun">
+            ☀
+        </div>
+
+        <div class="intro-label">
+            01 · SEPTIEMBRE · 2026
+        </div>
+
+        <h1>
+            El primer amanecer
+            de septiembre
+        </h1>
+
+        <p class="intro-description">
+            Antes de que comenzara tu día,
+            dejé un pequeño pedacito de mi corazón
+            esperándote aquí.
+        </p>
+
+        <button
+            class="open-letter"
+            id="openLetter">
+            ABRIR MI AMANECER
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTENIDO
+===================================================== -->
+
+<main class="main" id="main">
+
+    <section class="scene">
+
+        <!-- VENTANA -->
+
+        <div class="window">
+
+            <div class="window-glow"></div>
+
+            <div class="light-beam"></div>
+
+            <div class="curtain curtain-left"></div>
+            <div class="curtain curtain-right"></div>
+
+        </div>
+
+
+        <!-- CABECERA -->
+
+        <div class="hero">
+
+            <div class="september-mark">
+                ✦ PRIMERA MAÑANA · SEPTIEMBRE ✦
+            </div>
+
+            <div class="hero-card">
+
+                <h2>
+                    ✦ EL PRIMER SUSPIRO DE SEPTIEMBRE LLEVA TU NOMBRE ✦
+                </h2>
+
+                <div class="date">
+                    Martes, 1 de septiembre de 2026 — Por la mañana
+                </div>
+
+                <div class="dedication">
+                    Para ti, mi Dulce Aurora Secreta. ☀️🤍
+                </div>
+
+            </div>
+
+            <div class="prepared">
+                Dejé esto preparado antes de que despertaras.
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             CARTA EXACTA
+        ================================================= -->
+
+        <div class="letter-container">
+
+            <article class="letter">
+
+                <div class="letter-text">
+
+                    <p class="letter-title">
+                        ✦ EL PRIMER SUSPIRO DE SEPTIEMBRE LLEVA TU NOMBRE ✦
+                    </p>
+
+                    <p class="letter-date">
+                        Martes, 1 de septiembre de 2026 — Por la mañana
+                    </p>
+
+                    <p class="letter-dedication">
+                        Para ti, mi Dulce Aurora Secreta. ☀️🤍
+                    </p>
+
+
+                    <p>
+                        Mi amor:
+                    </p>
+
+                    <p>
+                        Si estás leyendo esto recién despertando, quiero imaginar que todavía tienes un poquito de sueño y que, antes de comenzar completamente tu día, encontraste esta pequeña sorpresa que dejé preparada para ti.
+                    </p>
+
+                    <p>
+                        Hoy comienza septiembre.
+                    </p>
+
+                    <p>
+                        Y quería que este primer día fuera diferente.
+                    </p>
+
+                    <p>
+                        Durante tantos meses me acostumbré a dejarte mis cartas por las noches, como una última parte de mi amor antes de que terminaras tu día. Pero esta vez quise cambiar el momento, no el sentimiento.
+                    </p>
+
+                    <p>
+                        Quiero que durante todo septiembre tengas un pequeño pedacito de mi amor esperándote desde la mañana.
+                    </p>
+
+                    <p>
+                        Cada día habrá algo mío preparado para ti, para que puedas encontrarlo apenas despiertes, como si antes de que comenzara tu día yo hubiera pasado un ratito pensando en ti y hubiera dejado mi corazón aquí, esperándote.
+                    </p>
+
+                    <p>
+                        Pero quiero que haya algo muy importante: no tienes que leer estas cartas apenas despiertes.
+                    </p>
+
+                    <p>
+                        Puedes leerlas cuando quieras.
+                    </p>
+
+                    <p>
+                        Si quieres hacerlo todavía entre las sábanas, será tuya. Si prefieres leerla mientras desayunas, también. Si tienes muchas cosas que hacer y solamente puedes abrirla más tarde, seguirá esperándote con exactamente el mismo amor.
+                    </p>
+
+                    <p>
+                        Porque no quiero que esto se convierta en una obligación.
+                    </p>
+
+                    <p>
+                        Quiero que sea un pequeño refugio.
+                    </p>
+
+                    <p>
+                        Y decidí hacerlo así porque recordé algo que me contaste: aquella vez que no alcanzaste a leer una de mis cartas porque por la noche te daba sueño. Me quedé pensando en eso y pensé que, si escribo estas cosas para que las disfrutes y sientas todo el amor que hay detrás de ellas, entonces también quería buscar una manera que fuera más cómoda para ti.
+                    </p>
+
+                    <p>
+                        Por eso septiembre comienza así.
+                    </p>
+
+                    <p>
+                        Con una carta esperándote al despertar.
+                    </p>
+
+                    <p>
+                        Y si te gusta esta nueva manera de recibir mis palabras, quizás podamos dejarla así durante este mes y convertir nuestras mañanas en un nuevo pequeño espacio para nosotros.
+                    </p>
+
+                    <p>
+                        Me encanta imaginar que, mientras el mundo apenas empieza a despertar, tú puedes encontrar unas palabras mías diciéndote:
+                    </p>
+
+                    <p>
+                        Buenos días, mi amor.
+                    </p>
+
+                    <p>
+                        Buenos días a la niña que ocupa tantos de mis pensamientos.
+                    </p>
+
+                    <p>
+                        Buenos días a esa persona que consigue hacer especial hasta un día completamente normal.
+                    </p>
+
+                    <p>
+                        Y buenos días a ti, porque no importa cuántas veces empiece un nuevo día, siempre voy a encontrar una razón para agradecer que seas tú quien forma parte de mi vida.
+                    </p>
+
+                    <p>
+                        Quiero que septiembre sea un mes bonito para nosotros.
+                    </p>
+
+                    <p>
+                        Quiero llenarlo de nuevos recuerdos, nuevas sonrisas, nuevos abrazos, nuevas miradas y pequeños momentos que quizás ahora parezcan insignificantes, pero que algún día podamos recordar y pensar: “Mira todo lo que vivimos juntos.”
+                    </p>
+
+                    <p>
+                        Y quiero que estas cartas sean solamente una pequeña parte de todo eso.
+                    </p>
+
+                    <p>
+                        Porque esto no se siente como comenzar nuestra historia nuevamente.
+                    </p>
+
+                    <p>
+                        Se siente como abrir una página nueva de una historia que todavía quiero seguir escribiendo contigo.
+                    </p>
+
+                    <p>
+                        Una página que comienza esta mañana.
+                    </p>
+
+                    <p>
+                        Y quizás lo más bonito sea que todavía no sabemos todo lo que va a suceder en ella.
+                    </p>
+
+                    <p>
+                        Solo sé que quiero estar ahí.
+                    </p>
+
+                    <p>
+                        Quiero seguir encontrando maneras de hacerte sentir amada. Quiero seguir sorprendiéndote con mis palabras, abrazarte cuando pueda, besarte cuando tenga la oportunidad y recordarte, incluso en los días más sencillos, lo muchísimo que significas para mí.
+                    </p>
+
+                    <p>
+                        Así que hoy quiero que empieces septiembre tranquila.
+                    </p>
+
+                    <p>
+                        Respira.
+                    </p>
+
+                    <p>
+                        Sonríe si puedes.
+                    </p>
+
+                    <p>
+                        Disfruta tu mañana.
+                    </p>
+
+                    <p>
+                        Y recuerda que mientras tú comienzas este nuevo día, existe alguien que está pensando en ti con todo su corazón.
+                    </p>
+
+                    <p>
+                        Alguien que quiso dejarte esta carta antes de que despertaras solamente para que encontraras un poquito de amor esperándote.
+                    </p>
+
+                    <p>
+                        Y si esta primera mañana significa el comienzo de algo nuevo, entonces quiero que sea el comienzo de treinta pequeños amaneceres en los que pueda recordarte cuánto te amo.
+                    </p>
+
+                    <p>
+                        Hoy es solamente el primero.
+                    </p>
+
+                    <p>
+                        Y ya estoy feliz de saber que los próximos todavía nos esperan.
+                    </p>
+
+                    <p>
+                        Te amo con todo lo que soy, con una ternura que me nace al pensarte y con una pasión que no deja de crecer; y si septiembre tiene un primer amanecer, yo quiero que ese amanecer siempre me recuerde a ti. 🤍☀️
+                    </p>
+
+                    <p>
+                        Buenos días, mi amor.
+                    </p>
+
+                    <p>
+                        Que comience septiembre… y que comience contigo.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 DETALLE OCULTO
+            ================================================= -->
+
+            <div class="secret" id="secret">
+
+                <button
+                    class="secret-trigger"
+                    id="secretTrigger"
+                    aria-label="Descubrir un secreto">
+                    ♡
+                </button>
+
+                <div class="secret-message">
+                    Si encontraste esto, entonces descubriste
+                    una pequeña parte de septiembre que escondí
+                    solamente para ti. 🤍
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             CIERRE
+        ================================================= -->
+
+        <section class="closing">
+
+            <div class="closing-line"></div>
+
+            <div class="closing-symbol">
+                ☀️
+            </div>
+
+            <p class="closing-text">
+                Algunas historias comienzan con una gran promesa.
+                La nuestra, esta mañana, comienza simplemente
+                con un pequeño pedacito de amor esperándote.
+            </p>
+
+
+            <!-- FRASE FINAL -->
+
+            <div class="final-love">
+
+                Que el primer amanecer de septiembre
+                guarde para siempre el instante en que
+                mi corazón volvió a escogerte con toda su fuerza.
+
+                <strong>
+                    VALERIA PETRO VILLAZÓN
+                </strong>
+
+            </div>
+
+
+            <!-- INICIO DEL PROYECTO -->
+
+            <div class="project-opening">
+
+                <span class="small">
+                    SEPTIEMBRE · DÍA 01
+                </span>
+
+                <div class="big">
+                    Este es solamente el primer amanecer.
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 BOTÓN DEL POEMA
+                 
+                 CAMBIA EL LINK DE ABAJO POR EL DEL POEMA
+            ================================================= -->
+
+            <div class="poem-area">
+
+                <a
+                    class="poem-button"
+                    href="PEGA_AQUI_EL_LINK_DE_TU_POEMA"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    <span>☀</span>
+
+                    Leer el poema de esta mañana
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <footer class="footer">
+
+            Un nuevo mes. Una nueva forma de encontrarnos.
+
+        </footer>
+
+    </section>
+
+</main>
+
+
+<script>
+
+/* =========================================================
+   ESTRELLAS DE MADRUGADA
+========================================================= */
+
+const starsContainer =
+    document.getElementById("stars");
+
+for(let i = 0; i < 45; i++){
+
+    const star =
+        document.createElement("span");
+
+    star.className =
+        "morning-star";
+
+    star.style.left =
+        Math.random() * 100 + "%";
+
+    star.style.top =
+        Math.random() * 62 + "%";
+
+    star.style.opacity =
+        (Math.random() * .55 + .15).toFixed(2);
+
+    starsContainer.appendChild(star);
+}
+
+
+/* =========================================================
+   ABRIR LA EXPERIENCIA
+========================================================= */
+
+const intro =
+    document.getElementById("intro");
+
+const main =
+    document.getElementById("main");
+
+const openButton =
+    document.getElementById("openLetter");
+
+openButton.addEventListener("click", () => {
+
+    intro.classList.add("hide");
+
+    setTimeout(() => {
+
+        main.classList.add("visible");
+
+    }, 350);
+
+});
+
+
+/* =========================================================
+   SECRETO
+========================================================= */
+
+const secret =
+    document.getElementById("secret");
+
+const secretTrigger =
+    document.getElementById("secretTrigger");
+
+secretTrigger.addEventListener("click", () => {
+
+    secret.classList.toggle("open");
+
+});
+
+
+/* =========================================================
+   PARALLAX MUY SUAVE EN COMPUTADOR
+========================================================= */
+
+const windowElement =
+    document.querySelector(".window");
+
+if(window.innerWidth > 700){
+
+    document.addEventListener("mousemove", (event) => {
+
+        const x =
+            (event.clientX / window.innerWidth - .5);
+
+        const y =
+            (event.clientY / window.innerHeight - .5);
+
+        windowElement.style.transform =
+            `translateX(calc(-50% + ${x * 5}px))
+             translateY(${y * 4}px)`;
+
+    });
+
+}
+
+
+/* =========================================================
+   EVITAR QUE EL BOTÓN DEL POEMA QUEDE SIN CAMBIAR
+========================================================= */
+
+const poemButton =
+    document.querySelector(".poem-button");
+
+poemButton.addEventListener("click", function(event){
+
+    if(
+        this.getAttribute("href") ===
+        "PEGA_AQUI_EL_LINK_DE_TU_POEMA"
+    ){
+
+        event.preventDefault();
+
+        alert(
+            "Aquí irá el poema de esta mañana. 🤍☀️"
+        );
+
+    }
+
+});
+
+</script>
+
+</body>
+  </html>
