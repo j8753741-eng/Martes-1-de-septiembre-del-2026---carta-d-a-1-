@@ -1729,84 +1729,6 @@ secretTrigger.addEventListener("click", () => {
 ========================================================= */
 
 const windowElement =
-<script>
-
-/* =========================================================
-   ESTRELLAS DE MADRUGADA
-========================================================= */
-
-const starsContainer =
-    document.getElementById("stars");
-
-for(let i = 0; i < 45; i++){
-
-    const star =
-        document.createElement("span");
-
-    star.className =
-        "morning-star";
-
-    star.style.left =
-        Math.random() * 100 + "%";
-
-    star.style.top =
-        Math.random() * 62 + "%";
-
-    star.style.opacity =
-        (Math.random() * .55 + .15).toFixed(2);
-
-    starsContainer.appendChild(star);
-}
-
-
-/* =========================================================
-   ABRIR LA EXPERIENCIA
-========================================================= */
-
-const intro =
-    document.getElementById("intro");
-
-const main =
-    document.getElementById("main");
-
-const openButton =
-    document.getElementById("openLetter");
-
-openButton.addEventListener("click", () => {
-
-    intro.classList.add("hide");
-
-    setTimeout(() => {
-
-        main.classList.add("visible");
-
-    }, 350);
-
-});
-
-
-/* =========================================================
-   SECRETO
-========================================================= */
-
-const secret =
-    document.getElementById("secret");
-
-const secretTrigger =
-    document.getElementById("secretTrigger");
-
-secretTrigger.addEventListener("click", () => {
-
-    secret.classList.toggle("open");
-
-});
-
-
-/* =========================================================
-   PARALLAX MUY SUAVE EN COMPUTADOR
-========================================================= */
-
-const windowElement =
     document.querySelector(".window");
 
 if(window.innerWidth > 700){
@@ -1827,7 +1749,32 @@ if(window.innerWidth > 700){
 
 }
 
+
+/* =========================================================
+   EVITAR QUE EL BOTÓN DEL POEMA QUEDE SIN CAMBIAR
+========================================================= */
+
+const poemButton =
+    document.querySelector(".poem-button");
+
+poemButton.addEventListener("click", function(event){
+
+    if(
+        this.getAttribute("href") ===
+        "PEGA_AQUI_EL_LINK_DE_TU_POEMA"
+    ){
+
+        event.preventDefault();
+
+        alert(
+            "Aquí irá el poema de esta mañana. 🤍☀️"
+        );
+
+    }
+
+});
+
 </script>
 
 </body>
-  </html>
+           </html>
